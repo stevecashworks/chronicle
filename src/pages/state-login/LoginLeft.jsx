@@ -103,6 +103,7 @@ const IllustrationWrapper = styled.div`
 const IllustrationImage = styled.img`
   width:100%;
   max-width:430px;
+  opacity: 0.1;
 `;
 
 const FloatingCard = styled.div`

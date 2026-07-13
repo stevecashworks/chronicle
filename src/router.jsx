@@ -26,7 +26,7 @@ import StateDashboard from "./pages/state-dashboard/state-dashboard";
 import Login from "./pages/state-login/Login";
 const router= createBrowserRouter([
     
-    {path:"/",element:<HomePage />},
+    {path:"/",element:<LoadingPage />},
     {path:"/dashboard", element:<Dashboard/>},
     {path:"/state-parameter", element:<StateParameterPage/>},
     {path:"/local-government-parameter", element:<LocalGovernmentPArameterPage/>},,

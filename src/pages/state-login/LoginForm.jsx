@@ -8,7 +8,9 @@ import {
   FiLogIn,
   FiShield,
 } from "react-icons/fi";
-
+import {apiEntry} from "../onboarding/medical-officer/medicalOfficer"
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -197,18 +199,44 @@ const SSOButton = styled.button`
   &:hover{
     background:#F8FAFC;
     border-color:var(--primary);
-  }
+  };
 `;
 
 const LoginForm = () => {
 
   const [showPassword,setShowPassword]=useState(false);
+  const [formData, setFormData]= useState({
+    email:"",
+    password:""
+  })
 
-  const submit=(e)=>{
+const navigate= useNavigate()
+
+  const  submit=async(e)=>{
     e.preventDefault();
+    if(!formData.email||!formData.password){
+      toast.error("Email and password  must be provided")
+      return
+    }
 
     // TODO:
     // login logic here
+    const response= await   fetch(`${apiEntry}/state/login`,{
+      method:"post",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify(formData)
+    })
+    const data= await response.json()
+    if(!data.success){
+      toast.error(data.result)
+    }
+    else{
+      toast.success("You've been successfully logged in",{duration:5000})
+      localStorage.setItem("chronicle_token",data.result)
+      navigate("/")
+    }
   }
 
   return (
@@ -217,7 +245,7 @@ const LoginForm = () => {
 
       <InputGroup>
 
-        <Label>Email Address</Label>
+        <Label htmlFor="email">Email Address</Label>
 
         <InputWrapper>
 
@@ -228,6 +256,9 @@ const LoginForm = () => {
           <Input
             type="email"
             placeholder="Enter your email"
+            id="email"
+            onChange={(e)=>{setFormData({...formData, email:e.target.value})}}
+
           />
 
         </InputWrapper>
@@ -236,7 +267,7 @@ const LoginForm = () => {
 
       <InputGroup>
 
-        <Label>Password</Label>
+        <Label htmlFor="password" >Password</Label>
 
         <InputWrapper>
 
@@ -247,6 +278,9 @@ const LoginForm = () => {
           <Input
             type={showPassword?"text":"password"}
             placeholder="Enter your password"
+            id="password"
+            onChange={(e)=>{setFormData({...formData, password:e.target.value})}}
+
           />
 
           <TogglePassword
@@ -291,18 +325,18 @@ const LoginForm = () => {
 
       <Divider>
 
-        OR
+        
 
       </Divider>
 
-      <SSOButton type="button">
+{/*     
+  <SSOButton type="button">
 
         <FiShield/>
 
         Continue with Government SSO
 
-      </SSOButton>
-
+      </SSOButton> */}
     </Form>
 
   );

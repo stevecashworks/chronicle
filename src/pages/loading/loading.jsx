@@ -1,67 +1,32 @@
 import styled from "styled-components"
-import {Card, Button, Spinner} from "react-bootstrap"
-import { Oval } from "react-loader-spinner";
-import ogunStateLogo from "../../assets/ogun-state-logo.png" 
-import { MdOutlineSignLanguage } from "react-icons/md";
-const Container=  styled.div`
-width:100vw;
+
+import React from 'react'
+import { BallTriangle } from "react-loader-spinner"
+
+
+const Container=styled.div`
+display:flex;
+align-items: center;
+justify-content: center;
 height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
+width:100vw
 `
-const SpinnerCon= styled.div`
-width:100%;
-align-items:center;
-justify-content:center;
-marginTop:10px;
-display:flex;
-`
-const CardCon= styled.div`
-height:20px;
-padding:50px;
-
-`
-const StyledCard= styled(Card)`
-padding:50px;
-
-`
-
-
-const  LoadingPage=()=>{
-    return(
-        <Container>
-        
-        
-
-
-    <StyledCard>
-      <Card.Img variant="top" src={ogunStateLogo} />
-
-      <Card.Body>
-        <Card.Title>Ogun State Government</Card.Title>
-        <Card.Text>
-          Hospital Management Board
-        </Card.Text>
-        
-      </Card.Body>
-      <SpinnerCon>
-
-    <Oval
-visible={true}
-height="40"
-width="40"
+const Loading = () => {
+  useEffect()
+  return (
+    <Container>
+    <BallTriangle
+height={100}
+width={100}
+radius={5}
 color="#4fa94d"
-ariaLabel="oval-loading"
+ariaLabel="ball-triangle-loading"
 wrapperStyle={{}}
 wrapperClass=""
+visible={true}
 />
-</SpinnerCon>
-    </StyledCard>
-        
-
-        </Container>
-        
-    )
+    </Container>
+  )
 }
-export default  LoadingPage
+
+export default Loading
