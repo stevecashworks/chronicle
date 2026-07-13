@@ -1,0 +1,127 @@
+
+:root{
+    --secondary-color:rgb(48, 145, 77);
+    --primary-color:#161616;
+    --tet-color:rgb(243, 124, 14);
+    --golden-orange:rgb(177, 117, 7);
+    --bg-gray:rgb(238, 240, 238);
+
+      /* ===========================
+     Primary Brand Colors
+  ============================ */
+  --primary: #0B5D4B;
+  --primary-dark: #064639;
+  --primary-light: #12806A;
+  --primary-lighter: #DDF6EF;
+  
+
+  /* ===========================
+     Backgrounds
+  ============================ */
+  --background: #F5F7FA;
+  --surface: #FFFFFF;
+  --surface-2: #F9FAFB;
+  --sidebar-bg: #064639;
+  --header-bg: #064639;
+
+  /* ===========================
+     Text
+  ============================ */
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --text-light: #FFFFFF;
+
+  /* ===========================
+     Borders
+  ============================ */
+  --border: #E5E7EB;
+  --border-light: #F1F5F9;
+
+  /* ===========================
+     Success
+  ============================ */
+  --success: #10B981;
+  --success-light: #DCFCE7;
+
+  /* ===========================
+     Warning
+  ============================ */
+  --warning: #F59E0B;
+  --warning-light: #FEF3C7;
+
+  /* ===========================
+     Error
+  ============================ */
+  --danger: #EF4444;
+  --danger-light: #FEE2E2;
+
+  /* ===========================
+     Info
+  ============================ */
+  --info: #3B82F6;
+  --info-light: #DBEAFE;
+
+  /* ===========================
+     Purple Accent
+  ============================ */
+  --purple: #8B5CF6;
+  --purple-light: #F3E8FF;
+
+  /* ===========================
+     Shadows
+  ============================ */
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.05);
+  --shadow-md: 0 6px 20px rgba(0,0,0,.08);
+  --shadow-lg: 0 10px 30px rgba(0,0,0,.10);
+
+  /* ===========================
+     Radius
+  ============================ */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+}
+body{
+    overflow-x:hidden;
+    width:100vw;
+    font-family: "Lato", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    cursor: url("/cursor.png") 16 16, auto;
+}
+html{
+    scroll-behavior: smooth;
+
+}
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+.light-tooltip .tooltip-inner {
+  background-color: #f8f9fa; /* bg-light */
+  color: #6c757d;           /* text-secondary */
+  border: 1px solid #dee2e6;
+}
+
+.light-tooltip.bs-tooltip-top .tooltip-arrow::before {
+  border-top-color: #f8f9fa;
+}
+
+.light-tooltip.bs-tooltip-bottom .tooltip-arrow::before {
+  border-bottom-color: #f8f9fa;
+}
+
+.light-tooltip.bs-tooltip-start .tooltip-arrow::before {
+  border-left-color: #f8f9fa;
+}
+
+.light-tooltip.bs-tooltip-end .tooltip-arrow::before {
+  border-right-color: #f8f9fa;
+}
+.chat-modal{
+   max-width: 300px; /* Set your desired width here */
+  width: 90%;       /* Ensures responsiveness on smaller screens */
+}
